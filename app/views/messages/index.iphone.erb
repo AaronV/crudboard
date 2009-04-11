@@ -1,0 +1,11 @@
+<div class="toolbar">
+  <h1 id="pageTitle">Board O' Crud</h1>
+  <%= link_to 'Post', new_message_path, :class => "button" %>
+</div>
+<ul title="Board O' Crud" selected="true">
+  <% for message in @messages %>
+    <li><%= message_line(message) %></li>
+  <% end %>
+  <li class="group">iPhone Beta</li>
+  <li><%= link_to "Leave iPhone Beta", {:controller => 'options', :action => 'iphone', :id => 'false'}, :target => "_self" %></li>
+</ul>

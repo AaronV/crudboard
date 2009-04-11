@@ -1,0 +1,61 @@
+/* @override 
+	http://localhost:3000/stylesheets/global.css?1231851654
+	http://localhost:3000/stylesheets/global.css?1231874431
+*/
+
+/* @group Body */
+
+body {
+	margin: 0;
+}
+
+.title {
+	text-align: center;
+}
+
+.container {
+	margin: 0 10px;
+}
+
+.navigation {
+	text-align: center;
+}
+
+
+
+/* @end */
+
+/* @group Message Styles */
+
+.message_body {
+	font: 80% Courier;
+	width: 800px;
+}
+
+blockquote {
+	border-left: 3px solid #c3c3c3;
+	padding-left: 5px;
+	margin: 0;
+}
+
+
+
+/* @end */
+
+/* @group Other */
+
+.top_bar {
+	text-align: right;
+	padding-right: 5px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.top_bar a {
+	font: 80% "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+
+
+/* @end */

@@ -1,0 +1,26 @@
+<table>
+  <tr>
+    <td>Posted by:</td>
+    <td><%=h message.name %></td>
+  </tr>
+  <tr>
+    <td>Subject:</td>
+    <td><%=h message.subject %></td>
+  </tr>
+  <tr>
+    <td>Date:</td>
+    <td><%= (message.created_at) ? message.created_at.to_s(:crud) : "n/a" %></td>
+  </tr>
+  <tr>
+    <td>Host:</td>
+    <td><%= message.host %></td>
+  </tr>
+</table>
+
+<hr/>
+
+<div class="message_body">
+  <%= auto_link(sanitize(message.formatted_message), :all, :target => '_blank') %>
+</div>
+
+<hr/>

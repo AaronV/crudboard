@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Board O' Crud</title>
+  
+  <%= auto_discovery_link_tag(:rss, {:controller => 'rss', :action => 'messages'}) %>
+  
+  <%= stylesheet_link_tag("global") %>
+  <%= stylesheet_link_tag(cookies[:theme] || "default") %>
+  <%= javascript_include_tag :defaults %>
+</head>
+
+<body>
+  <div class='top_bar'>
+    <%= link_to 'options', :controller => 'options' %>
+  </div>
+  
+  <div align='center' class='title'>
+    <h1>The Board O' Crud</h1>
+  </div>
+  
+  <div class='container'>
+    <%= render :partial => 'shared/navigation' %>
+  
+    <%= yield %>
+  
+    <%= render :partial => 'shared/navigation' %>
+  </div>
+  
+</body>
+
+</html>

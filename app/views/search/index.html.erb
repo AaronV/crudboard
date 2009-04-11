@@ -1,0 +1,29 @@
+<h2>Search:</h2>
+<% form_for(@search_message, :url => {:controller => 'search', :action => 'index'}, :html => {:method => :get}) do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name, :class => 'text_field' %>
+  <br/>
+  
+  <%= f.label :subject %>:
+  <%= f.text_field :subject, :class => 'text_field' %>
+  <br/>
+  
+  <%= f.label :host %>:
+  <%= f.text_field :host, :class => 'text_field' %>
+  <br/>
+  
+  <%= f.label :message %>:
+  <%= f.text_field :message, :class => 'text_field' %>
+  <br/>
+  
+  <%= submit_tag "Search" %> <input type='reset'>
+<% end %>
+
+<% if @messages %>
+<h2><%= @messages.size %> Results:</h2>
+<ul>
+  <% for message in @messages %>
+    <li><%= message_line(message) %></li>
+  <% end %>
+</ul>
+<% end %>

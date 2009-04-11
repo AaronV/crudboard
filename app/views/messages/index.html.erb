@@ -1,0 +1,23 @@
+<%= will_paginate @messages %>
+
+<% if cookies[:view] == 'thread' %>
+
+<ul>
+  <% for message in @messages %>
+    <% message.depth.times do %><ul><% end %>
+    <li><%= message_line(message) %></li>
+    <% message.depth.times do %></ul><% end %>
+  <% end %>
+</ul>
+
+<% else %>
+
+<ul>
+  <% for message in @messages %>
+    <li><%= message_line(message) %></li>
+  <% end %>
+</ul>
+
+<% end %>
+
+<%= will_paginate @messages %>

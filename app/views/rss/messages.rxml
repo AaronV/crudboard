@@ -1,0 +1,22 @@
+xml.instruct!
+xml.rss "version" => "2.0",
+        "xmlns:dc" => "http://purl.org/dc/elements/1.1" do
+  xml.channel do
+    xml.title "Board O' Crud"
+    xml.link url_for(:only_path => false,
+                     :controller => 'messages',
+                     :action => 'index')
+    xml.pubDate CGI.rfc1123_date(@messages.first.created_at)
+    xml.description h("Board O' Crud messages")
+    @messages.each do |message|
+      xml.item do
+        xml.title message.subject
+        xml.link url_for(:only_path => false, :controller => 'messages', :action => 'show', :id => message)
+        xml.description message.message
+        xml.pubDate CGI.rfc1123_date(message.created_at)
+        xml.guid url_for(:only_path => false, :controller => 'messages', :action => 'show', :id => message)
+        xml.author h(message.name)
+      end
+    end
+  end
+end

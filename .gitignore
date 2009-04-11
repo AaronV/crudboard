@@ -1,0 +1,7 @@
+log/*
+Capfile
+config/database.yml
+config/deploy.rb
+test/*
+*.svn
+*.DS_Store

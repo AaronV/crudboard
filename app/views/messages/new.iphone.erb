@@ -1,0 +1,32 @@
+<div class="toolbar">
+  <h1 id="pageTitle">Board O' Crud</h1> 
+  <%= link_to 'Messages', messages_path, :class => "button leftButton" %>
+  <%= link_to 'Post', new_message_path, :class => "button" %>
+</div>
+<ul selected="true">
+
+  <% form_for(@message) do |f| %>
+    <%= f.error_messages %>
+    <%= @message.errors.to_a %>
+  
+    <p>
+      <%= f.label :name %><br/>
+      <%= f.text_field :name %>
+    </p>
+  
+    <p>
+      <%= f.label :subject %><br/>
+      <%= f.text_field :subject %>
+    </p>
+  
+    <p>
+      <%= f.label :message %><br />
+      <%= f.text_area :message, :cols => 80, :rows => 8 %>
+    </p>
+  
+    <p>
+      <%= f.submit "Post Message" %>
+    </p>
+  
+  <% end %>
+</ul>

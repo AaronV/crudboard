@@ -1,0 +1,29 @@
+<h1>Post A Message</h1>
+
+<%= "<div class='preview'>" + render(:partial => "message", :locals => {:message => @message}) + "</div>" if params[:commit] == 'Preview' %>
+
+<% form_for(@message) do |f| %>
+  <%= f.error_messages %>
+  
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => 'text_field' %>
+  </p>
+  
+  <p>
+    <%= f.label :subject %>
+    <%= f.text_field :subject, :class => 'text_field' %>
+  </p>
+  
+  <p>
+    <%= f.label :message %>:<br />
+    <%= f.text_area :message, :cols => 80, :rows => 8, :class => 'text_field' %>
+  </p>
+  
+  <p>
+    <%= link_to_function "reset", "$('new_message').reset()" %>
+    <%= f.submit "Preview", :class => 'button' %>
+    <%= f.submit "Post", :class => 'button' %>
+  </p>
+  
+<% end %>

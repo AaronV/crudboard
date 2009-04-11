@@ -1,0 +1,10 @@
+<div class='navigation'>
+  <br/>
+  <hr/>
+  <%= link_to 'Sort by Thread', :controller => 'options', :action => 'set_view', :id => 'thread' %> | 
+  <%= link_to 'Post', new_message_path %> | 
+  <%= link_to 'Search', :controller => 'search', :action => 'index' %> | 
+  <%= link_to 'Sort by Date', :controller => 'options', :action => 'set_view', :id => 'date' %>
+  <hr/>
+  <br/>
+</div>
