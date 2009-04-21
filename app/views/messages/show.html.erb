@@ -1,8 +1,6 @@
 <%= render :partial => 'message', :locals => {:message => @message} %>
 
-<ul>
-  <%= message_thread(@message) %>
-</ul>
+<%= render :partial => 'message_thread', :locals => {:message => @message.root} %>
 
 <hr/>
 

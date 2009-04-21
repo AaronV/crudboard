@@ -9,28 +9,4 @@ module MessagesHelper
     end
   end
   
-  def message_thread(message)
-    output = ""
-    message.thread.each do |message|
-      
-      message.depth.times do
-        output += "<ul class='thread'>"
-      end
-      
-      if @message
-        link = (@message.id != message.id)
-      else
-        link = true
-      end
-      output += "<li>" + message_line(message, link) + "</li>"
-      
-      message.depth.times do
-        output += "</ul>"
-      end
-      
-    end
-    
-    return output
-  end
-  
 end

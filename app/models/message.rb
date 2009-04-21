@@ -40,20 +40,16 @@ class Message < ActiveRecord::Base
     end
   end
   
-  def thread
-    thread = []
-    thread << self.root
-        
-    running = true
-    while running
-      running = false
-      
-      nthread = Array.new(thread)
-      nthread.map{|m| thread.insert(thread.index(m)+1, m.children); thread.flatten!.uniq!}
-      
-      running = true if thread.size > nthread.size
+  def thread(thread=[])
+    # assume thread.empty? means the first call to this method
+    if thread.empty?
+      message = self.root
+      thread << message
+    else
+      message = self
     end
-    
+    thread.concat(message.children)
+    message.children.map{|child| child.thread(thread)}
     return thread
   end
   

@@ -32,7 +32,7 @@
   <li class="group">Thread</li>
   
   <ul>
-    <%= message_thread(@message) %>
+    <%= render :partial => 'message_thread.html.erb', :locals => {:message => @message.root} %>
   </ul>
 
   <li class="group">Reply</li>

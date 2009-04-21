@@ -4,9 +4,7 @@
 
 <ul>
   <% for message in @messages %>
-    <% message.depth.times do %><ul><% end %>
-    <li><%= message_line(message) %></li>
-    <% message.depth.times do %></ul><% end %>
+    <%= render :partial => 'message_thread', :locals => {:message => message.root} %>
   <% end %>
 </ul>
 

@@ -9,10 +9,6 @@ class MessagesController < ApplicationController
   def index
     if cookies[:view] == 'thread'
       @messages = Message.paginate(:page => params[:page], :per_page => 20, :conditions => "parent_id = 0", :order => "created_at DESC")
-      Array.new(@messages).each do |message|
-        @messages.insert(@messages.index(message)+1, message.thread)
-      end
-      @messages.flatten!.uniq!
     else
       @messages = Message.paginate(:page => params[:page], :per_page => 50, :order => 'created_at DESC')
     end

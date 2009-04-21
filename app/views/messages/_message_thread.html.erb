@@ -1,0 +1,3 @@
+<ul class='thread'>
+  <%= render(:partial => 'message_with_children.html.erb', :locals => {:message => message}) if message.children %>
+</ul>

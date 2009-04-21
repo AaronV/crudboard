@@ -1,0 +1,7 @@
+<li><%= message_line(message, ((!@message) or (@message != message))) %></li>
+
+<% message.children.each do |m| %>
+  <%= "<ul class='thread'>" %>
+    <%= render(:partial => 'message_with_children.html.erb', :locals => {:message => m}) %>
+  <%= "</ul>" %>
+<% end %>
