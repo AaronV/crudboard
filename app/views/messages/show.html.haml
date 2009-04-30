@@ -1,0 +1,30 @@
+= render :partial => 'message', :locals => {:message => @message}
+
+= render :partial => 'message_thread', :locals => {:message => @message.root}
+
+%hr
+
+%h2 Post A Reply
+
+- form_for(@reply_message) do |f|
+  = f.error_messages
+  
+  %p
+    = "#{f.label :name}:"
+    = f.text_field :name, :class => 'text_field'
+    
+  %p
+    = "#{f.label :subject}:"
+    = f.text_field :subject, :class => 'text_field'
+    
+  %p
+    = "#{f.label :message}:"
+    %br
+    = f.text_area :message, :cols => 80, :rows => 8, :class => 'text_field'
+
+  %p
+    = link_to_function "reset", "$('new_message').reset()"
+    = f.submit "Preview", :class => 'button'
+    = f.submit "Post", :class => 'button'
+    
+  = f.hidden_field :parent_id

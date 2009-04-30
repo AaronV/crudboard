@@ -20,7 +20,7 @@
 <hr/>
 
 <div class="message_body">
-  <%= auto_link(sanitize(message.formatted_message), :all, :target => '_blank') %>
+  <%= message.message_html %>
 </div>
 
 <hr/>

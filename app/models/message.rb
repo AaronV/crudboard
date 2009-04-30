@@ -1,36 +1,21 @@
 class Message < ActiveRecord::Base
   acts_as_tree :order => 'created_at'
   
+  auto_html_for :message do
+    html_escape
+    image
+    youtube :width => 500, :height => 300
+    vimeo :width => 500, :height => 300
+    link :target => "_blank", :rel => "nofollow"
+    simple_format
+  end
+  
   attr_accessor :depth
   
   # Validations
   validates_presence_of :name, :subject, :message
   
   # Methods
-  def formatted_message
-    m = self.message
-    
-    # link_regex = /(http[:\/\w\.\?\=\&-^\t]+)/
-    
-    # temp_message = self.message
-    # while temp_message =~ link_regex
-    #   found = $&
-    #   if FileExt.images.include?(found.split('.').last)
-    #     logger.warn("IMAGE FOUND")
-    #     m.gsub!(found, "<img src='#{found}' />")
-    #   # else
-    #   #   logger.warn("URL FOUND")
-    #   #   m.gsub!(found, "<a href='#{found}' target='new'>#{found}</a>")
-    #   end
-    #   temp_message = $'
-    # end
-    
-    # add returns
-    m.gsub!(/\r\n/, ' <br/> ')
-    
-    return m
-  end
-  
   def re_subject
     re = self.subject.match(/^Re:\s/).to_a
     if re.size == 0

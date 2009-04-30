@@ -9,16 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090106052540) do
+ActiveRecord::Schema.define(:version => 20090430052853) do
 
   create_table "messages", :force => true do |t|
-    t.integer  "parent_id",  :limit => 11, :default => 0
+    t.integer  "parent_id",    :default => 0
     t.string   "host"
     t.string   "name"
     t.string   "subject"
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "message_html"
   end
 
 end
